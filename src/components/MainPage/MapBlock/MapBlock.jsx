@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './MapBlock.module.css'
-const MapBlock=(props)=>{
+function MapBlock(props){
     return(
         <div className={s.blockWrapper}>Mapblock</div>
     )

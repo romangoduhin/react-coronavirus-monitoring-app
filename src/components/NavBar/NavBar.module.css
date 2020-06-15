@@ -2,5 +2,16 @@
     background-color: green;
     max-width: 1600px;
     height: 150px;
-    grid-area: nav;
+
+
+
+}
+.item{
+    color: white;
+    display: inline-block;
+    margin: 50px 50px 10px 20px;
+    float: right;
+}
+.activeLink {
+    color: gold;
 }
