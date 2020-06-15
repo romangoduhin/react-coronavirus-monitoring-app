@@ -1,0 +1,6 @@
+.blockWrapper{
+    background-color: green;
+    max-width: 1600px;
+    height: 150px;
+    grid-area: nav;
+}

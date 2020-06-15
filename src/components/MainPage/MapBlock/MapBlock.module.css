@@ -1,0 +1,5 @@
+.blockWrapper{
+    background-color: yellow;
+    grid-area: map;
+    height: 500px;
+}

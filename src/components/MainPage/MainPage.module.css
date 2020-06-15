@@ -1,0 +1,10 @@
+.wrapper {
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas:
+        "map map news"
+        "stat stat news";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-gap: 5px;
+}
