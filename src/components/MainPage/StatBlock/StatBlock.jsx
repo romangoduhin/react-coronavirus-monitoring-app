@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import CovidAPI from "../../../services/covidAPI";
+import s from './StatBlock.module.css'
 import {setGlobalStatActionCreator} from "../../../redux/statBlock-reducer";
 
 function StatBlock(props) {
@@ -20,11 +21,30 @@ function StatBlock(props) {
 
     if (!covidData || !covidData.Global) return <div> loading</div>;
     return (
-        <div>
-            <button onClick={() => setShowed(true)}>fsf</button>
-            Global stat:
-            {covidData.Global.NewConfirmed}
+        <div className={s.blockWrapper}>
+            <div className={s.globalStat}>
+                {/*<button onClick={() => setShowed(true)}>Показать</button>*/}
+                <div className={s.item}>
+                    Новых случаев за сегодня :{covidData.Global.NewConfirmed}
+                </div>
+                <div className={s.item}>
+                    Всего зараженных : {covidData.Global.TotalConfirmed}
+                </div>
+                <div className={s.item}>
+                    Новых смертей : {covidData.Global.NewDeaths}
+                </div>
+                <div className={s.item}>
+                    Всего смертей : {covidData.Global.TotalDeaths}
+                </div>
+                <div className={s.item}>
+                    Новых выздоровевших : {covidData.Global.NewRecovered}
+                </div>
+                <div className={s.item}>
+                    Новых выздоровевших : {covidData.Global.TotalRecovered}
+                </div>
+            </div>
         </div>
+
     );
 
 }
