@@ -1,4 +1,10 @@
-.blockWrapper{
-    background-color: blue;
+.blockWrapper {
+    background-color: red;
     grid-area: stat;
+}
+
+.global {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
 }
