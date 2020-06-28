@@ -1,5 +1,5 @@
 import React from 'react';
-import {setGlobalStatActionCreator} from "../../../redux/statBlock-reducer";
+import {setGlobalStatActionCreator} from "../../../redux/covid-reducer";
 import {connect} from "react-redux";
 import StatBlock from "./StatBlock";
 

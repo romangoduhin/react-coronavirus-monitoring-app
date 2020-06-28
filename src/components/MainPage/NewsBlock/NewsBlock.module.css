@@ -1,4 +1,12 @@
-.blockWrapper{
-    background-color: #f1f1f1;
+.blockWrapper {
+    background-color: blue;
     grid-area: news;
+}
+
+.item {
+    background-color: white;
+}
+
+.publishedAt {
+    color: purple;
 }
