@@ -9,11 +9,12 @@ function StatBlock(props) {
     console.log(covidData);
     const dispatch = useDispatch();
 
-    useEffect(async () => {
-
-        const res = await CovidAPI.getGlobalStatistics();
-        dispatch(setSummaryStatActionCreator(res));
-
+    useEffect(() => {
+        const getStat = async () => {
+            const res = await CovidAPI.getGlobalStatistics();
+            dispatch(setSummaryStatActionCreator(res));
+        }
+        getStat();
     }, []);
 
     if (covidData.length === 0) return <div> loading</div>;

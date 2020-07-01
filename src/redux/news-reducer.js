@@ -1,16 +1,23 @@
 const SET_COVID_NEWS = 'SET_COVID_NEWS';
+const SET_TOTAL_RESULTS = 'SET_TOTAL_RESULTS';
 
 const initialState = {
-    covidNews: []
+    covidNews: [],
+    totalResults: 0,
+    pageSize: 20,
+    currentPage: 1
 };
 
 const newsReducer = (state = initialState, action) => {
-
     switch (action.type) {
-
         case SET_COVID_NEWS: {
             return {
-                ...state, covidNews: [...state.covidNews, ...action.covidNews]
+                ...state, covidNews: [...action.covidNews]
+            }
+        }
+        case SET_TOTAL_RESULTS: {
+            return {
+                ...state, totalResults: action.totalResults
             }
         }
         default:
@@ -22,6 +29,13 @@ export const setNewsActionCreator = (covidNews) => {
     return {
         type: SET_COVID_NEWS,
         covidNews
+    }
+};
+
+export const setTotalResultsActionCreator = (totalResults) => {
+    return {
+        type: SET_TOTAL_RESULTS,
+        totalResults
     }
 };
 

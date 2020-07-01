@@ -1,5 +1,4 @@
 .blockWrapper {
-    background-color: blue;
     grid-area: news;
 }
 
@@ -9,4 +8,12 @@
 
 .publishedAt {
     color: purple;
+}
+
+.pageList {
+    background-color: grey;
+}
+
+.selectPage {
+    font-weight: bold;
 }

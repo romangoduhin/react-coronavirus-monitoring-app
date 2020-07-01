@@ -8,12 +8,9 @@ const MapPage = (props) => {
         <div>
             <NavBar/>
             <div className={s.wrapper}>
-
                 MapPage
             </div>
-
         </div>
-
     )
 };
 export default MapPage;

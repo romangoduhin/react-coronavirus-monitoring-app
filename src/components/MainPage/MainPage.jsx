@@ -1,10 +1,9 @@
 import React from 'react';
-import MapBlock from "./MapBlock/MapBlock";
-import NewsBlock from "./NewsBlock/NewsBlock";
 import s from "./MainPage.module.css"
-import NavBar from "../NavBar/NavBar";
-
+import NewsBlock from "./NewsBlock/NewsBlock";
 import StatBlock from "./StatBlock/StatBlock";
+import MapBlock from "./MapBlock/MapBlock";
+import NavBar from "../NavBar/NavBar";
 
 
 const MainPage = (props) => {
