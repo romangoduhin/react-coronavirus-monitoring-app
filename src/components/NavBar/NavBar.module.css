@@ -1,31 +1,51 @@
 .blockWrapper {
-    background-color: #f1f1f1;
-    width: 100%;
-    height: 170px;
-
+  position: fixed;
+  background-color: #fefefe;
+  width: 100%;
+  height: 150px;
+  top: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-areas: "l n ";
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 10fr;
 }
 .navWrapper {
-    background-color: yellow;
-
-
+  grid-area: n;
+  height: 30%;
+  width: 90%;
+  margin-top: 50px;
+  margin-left: 100px;
 }
-.logo  {
-    width: 420px;
-    height: 120px;
+.logo {
+  grid-area: l;
+  width: 140px;
+  height: 120px;
+  margin-left: 30px;
 }
 .logo img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
-
-
+.logo img:hover {
+  transform: scale(1.3);
+}
 .item {
-    color: white;
-    display: inline-block;
-    margin-right: 50px;
-    float: right;
+  color: white;
+  display: inline-block;
+  margin-right: 50px;
+  float: right;
+  text-decoration: none;
+  font-size: 30px;
+}
+.item a {
+  text-decoration: none;
+  color: black;
+}
+.item:hover {
+  transform: scale(1.4);
 }
 
-.activeLink {
-    color: red;
+.item a.activeLink {
+  color: #a6e198;
 }
