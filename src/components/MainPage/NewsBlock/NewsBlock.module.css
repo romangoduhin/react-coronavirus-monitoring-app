@@ -11,14 +11,27 @@
   font-size: 20px;
   padding: 10px;
 }
+.item:hover {
+  transform: scale(0.98);
+
+  transition: all 0.2s;
+}
 .listItem {
   color: black;
   font-size: 30px;
 }
+.listItem:hover {
+  transform: scale(1.1);
+  color: crimson;
+  transition: all 0.7s;
+  cursor: pointer;
+}
 .item a {
+  font-family: Arial, Helvetica, Verdana, sans-serif;
   text-decoration: none;
   color: black;
 }
+
 .publishedAt {
   color: purple;
 }

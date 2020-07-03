@@ -20,11 +20,10 @@ function StatBlock(props) {
   if (covidData.length === 0) return <div> loading</div>;
   return (
     <div className={s.blockWrapper}>
-      <h2 className={s.headline}>
-        Статистика распространения коронавируса в мире на сегодня
-      </h2>
+      <h1 className={s.headline}>
+        Статистика распространения коронавируса в мире на сегодня:
+      </h1>
       <div className={s.globalStat}>
-        {/*<button onClick={() => setShowed(true)}>Показать</button>*/}
         <div className={s.item}>
           Новых случаев за сегодня :{covidData.NewConfirmed}
         </div>

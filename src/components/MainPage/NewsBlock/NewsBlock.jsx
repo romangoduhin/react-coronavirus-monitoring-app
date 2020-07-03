@@ -52,7 +52,7 @@ function NewsBlock(props) {
                       ? newsNotFoundImg
                       : article.urlToImage
                   }
-                  alt="imgNews"
+                  alt=""
                 />
               </a>
             </div>

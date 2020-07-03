@@ -9,7 +9,7 @@ const NavBar = (props) => {
         <img src={logo} alt="picture" />
       </div>
       <div className={s.navWrapper}>
-        <div className={s.item}>
+        <div className={s.mainItem}>
           <NavLink to="/" activeClassName={s.activeLink}>
             Главная
           </NavLink>
