@@ -1,16 +1,13 @@
-import React from 'react';
+import React from "react";
 import NavBar from "../NavBar/NavBar";
+import News from "./News/News";
 
-
-const NewsPage = (props) => {
-    return (
-        <div>
-            <NavBar/>
-            <div>
-                NewsPage
-            </div>
-        </div>
-
-    )
-};
+function NewsPage() {
+  return (
+    <div>
+      <NavBar />
+      <News />
+    </div>
+  );
+}
 export default NewsPage;
