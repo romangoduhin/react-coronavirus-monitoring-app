@@ -5,7 +5,6 @@ const initialState = {
   covidNews: [],
   totalResults: 0,
   pageSize: 5,
-  currentPage: 1,
 };
 
 const newsReducer = (state = initialState, action) => {

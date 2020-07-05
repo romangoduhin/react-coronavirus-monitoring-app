@@ -22,7 +22,6 @@ function NewsBlock(props) {
         currentPage,
         pageSize
       );
-      console.log(articles);
       dispatch(setNewsActionCreator(articles));
       dispatch(setTotalResultsActionCreator(totalResults));
     };

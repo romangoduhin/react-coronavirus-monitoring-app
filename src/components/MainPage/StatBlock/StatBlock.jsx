@@ -1,12 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CovidAPI from "../../../services/covidAPI";
 import s from "./StatBlock.module.css";
-import { setSummaryStatActionCreator } from "../../../redux/covid-reducer";
+import {
+  setCountryStatActionCreator,
+  setSummaryStatActionCreator,
+} from "../../../redux/covid-reducer";
 
 function StatBlock(props) {
-  const covidData = useSelector((state) => state.covid.summaryCovidStat);
-  console.log(covidData);
+  const [showed, setShowed] = useState(false);
+  const [currentCountry, setCurrentCountry] = useState("");
+  const { summaryCovidStat, countryCovidStat } = useSelector(
+    (state) => state.covid
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,8 +22,15 @@ function StatBlock(props) {
     };
     getStat();
   }, []);
-
-  if (covidData.length === 0) return <div> loading</div>;
+  useEffect(() => {
+    const getCountryStat = async () => {
+      const res = await CovidAPI.getCountryStatistics(currentCountry);
+      dispatch(setCountryStatActionCreator(res));
+    };
+    getCountryStat();
+  }, [currentCountry]);
+  if (summaryCovidStat.length === 0 && countryCovidStat.length === 0)
+    return <div> loading</div>;
   return (
     <div className={s.blockWrapper}>
       <h1 className={s.headline}>
@@ -25,18 +38,53 @@ function StatBlock(props) {
       </h1>
       <div className={s.globalStat}>
         <div className={s.item}>
-          Новых случаев за сегодня :{covidData.NewConfirmed}
+          Новых случаев за сегодня :{summaryCovidStat.NewConfirmed}
         </div>
         <div className={s.item}>
-          Всего зараженных : {covidData.TotalConfirmed}
-        </div>
-        <div className={s.item}>Новых смертей : {covidData.NewDeaths}</div>
-        <div className={s.item}>Всего смертей : {covidData.TotalDeaths}</div>
-        <div className={s.item}>
-          Новых выздоровевших : {covidData.NewRecovered}
+          Всего зараженных : {summaryCovidStat.TotalConfirmed}
         </div>
         <div className={s.item}>
-          Новых выздоровевших : {covidData.TotalRecovered}
+          Новых смертей : {summaryCovidStat.NewDeaths}
+        </div>
+        <div className={s.item}>
+          Всего смертей : {summaryCovidStat.TotalDeaths}
+        </div>
+        <div className={s.item}>
+          Новых выздоровевших : {summaryCovidStat.NewRecovered}
+        </div>
+        <div className={s.item}>
+          Новых выздоровевших : {summaryCovidStat.TotalRecovered}
+        </div>
+      </div>
+      <div className={s.countryList}>
+        <div>
+          <div
+            className={s.belarus}
+            onClick={() => {
+              setCurrentCountry("belarus");
+              console.log("BELARUS");
+            }}
+          >
+            Belarus
+          </div>
+        </div>
+        <div
+          className={s.russia}
+          onClick={() => {
+            setCurrentCountry("russia");
+            console.log("RUSSIA");
+          }}
+        >
+          Russia
+        </div>
+        <div
+          className={s.ukraine}
+          onClick={() => {
+            setCurrentCountry("ukraine");
+            console.log("UKRAINE");
+          }}
+        >
+          Ukraine
         </div>
       </div>
     </div>
