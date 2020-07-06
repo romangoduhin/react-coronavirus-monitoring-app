@@ -10,10 +10,14 @@
 .item {
   font-size: 20px;
   padding: 10px;
+  border: 1px grey;
+  border-style: solid;
 }
 .item:hover {
   transform: scale(0.98);
   transition: all 0.2s;
+  border: 1px red;
+  border-style: solid;
 }
 .listItem {
   color: black;
