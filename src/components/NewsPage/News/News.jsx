@@ -27,7 +27,7 @@ function News() {
   }, [currentPage]);
   let pagesCount = Math.ceil(totalResults / pageSize);
   let pages = [];
-  for (let i = 1; i <= (pagesCount > 10 ? 10 : pagesCount); i++) {
+  for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
   if (covidNews.length === 0) return <div> loading</div>;
@@ -43,7 +43,7 @@ function News() {
                     <img
                       className={s.urlToImage}
                       src={
-                        article.urlToImage === null
+                        article.urlToImage === null || article.urlToImage === ""
                           ? newsNotFoundImg
                           : article.urlToImage
                       }
@@ -69,6 +69,7 @@ function News() {
           );
         })}
       </div>
+
       <div className={s.pageList}>
         {pages.map((page) => {
           return (
