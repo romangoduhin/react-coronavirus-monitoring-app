@@ -7,9 +7,10 @@ const instance = axios.create({
 const CovidAPI = {
   getGlobalStatistics: async () => {
     const response = await instance.get("/summary");
-    return response.data.Global;
+    console.log(response.data);
+    return response.data;
   },
-  getCountryStatistics: async (currentCountry) => {
+  getCountryStatistics: async (currentCountry = "belarus") => {
     const response = await instance.get(`/live/country/${currentCountry}`);
     console.log(response);
     return response.data;

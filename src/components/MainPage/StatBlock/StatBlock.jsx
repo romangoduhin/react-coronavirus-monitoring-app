@@ -4,21 +4,23 @@ import CovidAPI from "../../../services/covidAPI";
 import s from "./StatBlock.module.css";
 import {
   setCountryStatActionCreator,
+  setGlobalStatActionCreator,
   setSummaryStatActionCreator,
 } from "../../../redux/covid-reducer";
 
 function StatBlock(props) {
   const [showed, setShowed] = useState(false);
   const [currentCountry, setCurrentCountry] = useState("");
-  const { summaryCovidStat, countryCovidStat } = useSelector(
+  const { summaryCovidStat, globalCovidStat, countryCovidStat } = useSelector(
     (state) => state.covid
   );
   const dispatch = useDispatch();
 
   useEffect(() => {
     const getStat = async () => {
-      const res = await CovidAPI.getGlobalStatistics();
-      dispatch(setSummaryStatActionCreator(res));
+      const { Countries, Global } = await CovidAPI.getGlobalStatistics();
+      dispatch(setSummaryStatActionCreator(Global));
+      dispatch(setGlobalStatActionCreator(Countries));
     };
     getStat();
   }, []);
