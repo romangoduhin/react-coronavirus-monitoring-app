@@ -34,17 +34,49 @@ function Statistic() {
 
   if (summaryCovidStat.length === 0 && globalCovidStat.length === 0)
     return <div> loading</div>;
+
   return (
     <div className={s.blockWrapper}>
-      <input
-        className={s.input}
-        type="text"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-      />
-      <div>
+      <div className={s.inputBlock}>
+        <input
+          className={s.input}
+          type="text"
+          value={value}
+          placeholder={"Введите искомую страну"}
+          onChange={(event) => setValue(event.target.value)}
+        />
+      </div>
+      <div className={s.statBlock}>
         {arr.map((item) => {
-          return <div>{item.Country}</div>;
+          return (
+            <div className={s.item}>
+              <div className={s.Country}>{item.Country}</div>
+              <div className={s.infBlock}>
+                <div className={s.TotalConfirmed}>
+                  Случаев заражения:{item.TotalConfirmed}
+                </div>
+                <div className={s.TotalDeaths}>
+                  Случаев смерти: {item.TotalDeaths}
+                </div>
+                <div className={s.TotalRecovered}>
+                  Случаев выздоровления: {item.TotalRecovered}
+                </div>
+                <h5>
+                  {" "}
+                  Статистика по сегоднешнему дню {item.Date.split("T")[0]}
+                </h5>
+                <div className={s.NewConfirmed}>
+                  Случаев заражения: {item.NewConfirmed}
+                </div>
+                <div className={s.NewDeaths}>
+                  Случаев смерти: {item.NewDeaths}
+                </div>
+                <div className={s.NewRecovered}>
+                  Случаев выздоровления: {item.NewRecovered}
+                </div>
+              </div>
+            </div>
+          );
         })}
       </div>
     </div>
