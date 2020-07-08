@@ -10,11 +10,6 @@ const CovidAPI = {
     console.log(response.data);
     return response.data;
   },
-  getCountryStatistics: async (currentCountry = "belarus") => {
-    const response = await instance.get(`/live/country/${currentCountry}`);
-    console.log(response);
-    return response.data;
-  },
 };
 
 export default CovidAPI;

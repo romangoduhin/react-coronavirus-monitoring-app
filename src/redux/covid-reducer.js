@@ -4,14 +4,6 @@ const SET_GLOBAL_STAT = "SET_GLOBAL_STAT";
 const initialState = {
   summaryCovidStat: {},
   globalCovidStat: [],
-  countryCovidStat: [
-    {
-      Confirmed: 0,
-      Deaths: 0,
-      Recovered: 0,
-      Date: "2020-04-14T00:00:00Z",
-    },
-  ],
 };
 
 const covidReducer = (state = initialState, action) => {
@@ -31,12 +23,6 @@ const covidReducer = (state = initialState, action) => {
         globalCovidStat: [...state.globalCovidStat, ...action.globalCovidStat],
       };
     }
-    case SET_COUNTRY_STAT: {
-      return {
-        ...state,
-        countryCovidStat: [...action.countryCovidStat],
-      };
-    }
     default:
       return state;
   }
@@ -49,12 +35,6 @@ export const setSummaryStatActionCreator = (summaryCovidStat) => {
   };
 };
 
-export const setCountryStatActionCreator = (countryCovidStat) => {
-  return {
-    type: SET_COUNTRY_STAT,
-    countryCovidStat,
-  };
-};
 export const setGlobalStatActionCreator = (globalCovidStat) => {
   return {
     type: SET_GLOBAL_STAT,
