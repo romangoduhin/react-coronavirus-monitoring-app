@@ -10,7 +10,7 @@ import {
 
 function NewsBlock(props) {
   const [currentPage, setCurrentPage] = useState(1);
-  const { covidNews, totalResults, pageSize } = useSelector(
+  const { covidNews, totalCount, pageSize } = useSelector(
     (state) => state.news
   );
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function NewsBlock(props) {
     getNews();
   }, [currentPage]);
 
-  let pagesCount = Math.ceil(totalResults / pageSize);
+  let pagesCount = Math.ceil(totalCount / pageSize);
   let pages = [];
   for (let i = 1; i <= (pagesCount > 10 ? 10 : pagesCount); i++) {
     pages.push(i);

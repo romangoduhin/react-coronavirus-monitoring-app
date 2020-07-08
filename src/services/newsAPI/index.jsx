@@ -15,6 +15,13 @@ const newsAPI = {
     console.log(response);
     return response.data;
   },
+  getFullNews: async (searchWord = "covid", pageSize) => {
+    const response1 = await instance.get(
+      `?q=${searchWord}&apiKey=${key}&pageSize=${pageSize}`
+    );
+    console.log(response1);
+    return response1.data;
+  },
 };
 
 export default newsAPI;

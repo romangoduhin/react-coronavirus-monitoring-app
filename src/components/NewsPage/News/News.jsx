@@ -3,6 +3,7 @@ import s from "./News.module.css";
 import newsAPI from "../../../services/newsAPI";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setFullNewsActionCreator,
   setNewsActionCreator,
   setTotalResultsActionCreator,
 } from "../../../redux/news-reducer";
@@ -10,7 +11,7 @@ import newsNotFoundImg from "../../../services/pngfuel.com.png";
 function News() {
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
-  const { covidNews, totalResults, pageSize } = useSelector(
+  const { covidNews, totalCount, pageSize } = useSelector(
     (state) => state.news
   );
   useEffect(() => {
@@ -25,7 +26,8 @@ function News() {
     };
     getNews();
   }, [currentPage]);
-  let pagesCount = Math.ceil(totalResults / pageSize);
+
+  let pagesCount = Math.ceil(totalCount / pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
