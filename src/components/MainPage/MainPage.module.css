@@ -3,8 +3,13 @@
   margin-top: 115px;
   display: grid;
   align-content: start;
-  grid-template-areas: "map map news" "stat stat news" "stat stat news";
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "map map news"
+    "map map news"
+    "stat stat news"
+    "stat stat news"
+    "symp symp symp";
+  grid-template-rows: 1fr 1fr 1fr 2fr;
   grid-template-columns: 2fr 2fr 1fr;
   grid-gap: 5px;
 }

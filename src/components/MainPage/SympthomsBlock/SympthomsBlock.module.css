@@ -1,0 +1,24 @@
+.sympthomsInfo {
+  grid-area: symp;
+  width: 100%;
+  height: 100%;
+
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+.discriptionHeadline {
+  text-align: center;
+  font-size: 70px;
+}
+.discription {
+  font-size: 30px;
+}
+.sympthoms {
+  font-size: 25px;
+}
+.methodsHeadline {
+  text-align: center;
+  font-size: 70px;
+}
+.video {
+  text-align: center;
+}
