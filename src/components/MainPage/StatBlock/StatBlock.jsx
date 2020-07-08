@@ -28,22 +28,22 @@ function StatBlock(props) {
       </h1>
       <div className={s.globalStat}>
         <div className={s.item}>
-          Новых случаев за сегодня :{summaryCovidStat.NewConfirmed}
+          Новых случаев за сегодня:<p>{summaryCovidStat.NewConfirmed}</p>
         </div>
         <div className={s.item}>
-          Всего зараженных : {summaryCovidStat.TotalConfirmed}
+          Всего зараженных:<p>{summaryCovidStat.TotalConfirmed}</p>
         </div>
         <div className={s.item}>
-          Новых смертей : {summaryCovidStat.NewDeaths}
+          Новых смертей:<p> {summaryCovidStat.NewDeaths}</p>
         </div>
         <div className={s.item}>
-          Всего смертей : {summaryCovidStat.TotalDeaths}
+          Всего смертей:<p>{summaryCovidStat.TotalDeaths}</p>
         </div>
         <div className={s.item}>
-          Новых выздоровевших : {summaryCovidStat.NewRecovered}
+          Новых выздоровевших:<p>{summaryCovidStat.NewRecovered}</p>
         </div>
         <div className={s.item}>
-          Новых выздоровевших : {summaryCovidStat.TotalRecovered}
+          Новых выздоровевших:<p>{summaryCovidStat.TotalRecovered}</p>
         </div>
       </div>
     </div>

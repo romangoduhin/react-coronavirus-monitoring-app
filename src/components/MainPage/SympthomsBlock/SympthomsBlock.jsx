@@ -3,7 +3,7 @@ import s from "./SympthomsBlock.module.css";
 function SympthomsBlock() {
   return (
     <div className={s.sympthomsInfo}>
-      <h1 className={s.discriptionHeadline}>Симптомы коронавируса </h1>
+      <h1 className={s.headline}>Симптомы коронавируса </h1>
       <div className={s.discription}>
         Инкубационный период коронавируса Covid-19 может продолжаться более двух
         недель. Более продолжительные сроки инкубационного периода могут быть
@@ -62,7 +62,7 @@ function SympthomsBlock() {
           тракт.
         </div>
       </div>
-      <h1 className={s.methodsHeadline}>Эффективные методы защиты</h1>
+      <h1 className={s.headline}>Эффективные методы защиты</h1>
       <div className={s.video}>
         <iframe
           width="1280"

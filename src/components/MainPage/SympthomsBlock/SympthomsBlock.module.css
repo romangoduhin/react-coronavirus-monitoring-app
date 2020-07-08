@@ -1,13 +1,27 @@
 .sympthomsInfo {
   grid-area: symp;
-  width: 100%;
+  margin: auto;
+  width: 90%;
   height: 100%;
 
   font-family: Arial, Helvetica, Verdana, sans-serif;
 }
-.discriptionHeadline {
+.headline {
   text-align: center;
   font-size: 70px;
+}
+
+.headline:hover {
+  color: #a6e198;
+  transition: all 1s;
+}
+h2:hover {
+  color: red;
+  transition: all 1s;
+}
+li:hover {
+  transform: scale(1.005);
+  transition: all 1s;
 }
 .discription {
   font-size: 30px;
