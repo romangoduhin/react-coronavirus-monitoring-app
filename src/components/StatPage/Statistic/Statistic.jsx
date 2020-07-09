@@ -8,13 +8,14 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./Statistic.module.css";
 
 function Statistic() {
-  const [value, setValue] = useState("");
   const { summaryCovidStat, globalCovidStat } = useSelector(
     (state) => state.covid
   );
+
   const [arr, setArr] = useState(globalCovidStat);
-  console.log(arr);
-  const dispatch = useDispatch();
+  const [value, setValue] = useState("");
+  const [count, setCount] = useState(0);
+  console.log(count);
   useEffect(() => {
     const getStat = async () => {
       const { Countries, Global } = await CovidAPI.getGlobalStatistics();
@@ -31,6 +32,13 @@ function Statistic() {
     });
     setArr(filteredArr);
   }, [value]);
+  useEffect(() => {
+    let sortedArr = globalCovidStat.sort((a, b) => {
+      return b.TotalConfirmed - a.TotalConfirmed;
+    });
+    setArr(sortedArr);
+  }, [count]);
+  const dispatch = useDispatch();
 
   if (summaryCovidStat.length === 0 && globalCovidStat.length === 0)
     return <div> loading</div>;
@@ -45,7 +53,16 @@ function Statistic() {
           placeholder={"Введите искомую страну"}
           onChange={(event) => setValue(event.target.value)}
         />
+        <button
+          className={s.button}
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          По убыванию
+        </button>
       </div>
+
       <div className={s.statBlock}>
         {arr.map((item) => {
           return (
@@ -82,4 +99,5 @@ function Statistic() {
     </div>
   );
 }
+
 export default Statistic;

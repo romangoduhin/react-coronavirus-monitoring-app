@@ -20,7 +20,7 @@ const covidReducer = (state = initialState, action) => {
     case SET_GLOBAL_STAT: {
       return {
         ...state,
-        globalCovidStat: [...state.globalCovidStat, ...action.globalCovidStat],
+        globalCovidStat: [...action.globalCovidStat],
       };
     }
     default:
