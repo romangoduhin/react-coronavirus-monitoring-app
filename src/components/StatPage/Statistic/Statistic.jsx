@@ -12,10 +12,14 @@ function Statistic() {
     (state) => state.covid
   );
 
+  const dispatch = useDispatch();
+
   const [arr, setArr] = useState(globalCovidStat);
+
   const [value, setValue] = useState("");
+
   const [count, setCount] = useState(0);
-  console.log(count);
+
   useEffect(() => {
     const getStat = async () => {
       const { Countries, Global } = await CovidAPI.getGlobalStatistics();
@@ -32,13 +36,13 @@ function Statistic() {
     });
     setArr(filteredArr);
   }, [value]);
+
   useEffect(() => {
     let sortedArr = globalCovidStat.sort((a, b) => {
       return b.TotalConfirmed - a.TotalConfirmed;
     });
     setArr(sortedArr);
   }, [count]);
-  const dispatch = useDispatch();
 
   if (summaryCovidStat.length === 0 && globalCovidStat.length === 0)
     return <div> loading</div>;
@@ -64,9 +68,9 @@ function Statistic() {
       </div>
 
       <div className={s.statBlock}>
-        {arr.map((item) => {
+        {arr.map((item, i) => {
           return (
-            <div className={s.item}>
+            <div className={s.item} key={i}>
               <div className={s.Country}>{item.Country}</div>
               <div className={s.infBlock}>
                 <div className={s.TotalConfirmed}>

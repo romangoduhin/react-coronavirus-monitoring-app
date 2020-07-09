@@ -8,12 +8,14 @@ import {
   setTotalResultsActionCreator,
 } from "../../../redux/news-reducer";
 
-function NewsBlock(props) {
-  const [currentPage, setCurrentPage] = useState(1);
+function NewsBlock() {
   const { covidNews, totalCount, pageSize } = useSelector(
     (state) => state.news
   );
+
   const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const getNews = async () => {
@@ -39,13 +41,13 @@ function NewsBlock(props) {
   return (
     <div className={s.blockWrapper}>
       <div className={s.newsList}>
-        {covidNews.map((article) => {
+        {covidNews.map((article, i) => {
           return (
-            <div key={article.id} className={s.item}>
+            <div key={i} className={s.item}>
               <a href={article.url}>
                 <div className={s.title}>{article.title}</div>
                 <img
-                  class={s.urlToImage}
+                  className={s.urlToImage}
                   src={
                     article.urlToImage === null
                       ? newsNotFoundImg
@@ -58,12 +60,13 @@ function NewsBlock(props) {
           );
         })}
       </div>
+
       <div className={s.pageList}>
-        {pages.map((page) => {
+        {pages.map((page, i) => {
           return (
             <span
               className={currentPage === page ? s.selectPage : s.listItem}
-              key={page.id}
+              key={i}
               onClick={() => {
                 setCurrentPage(page);
               }}

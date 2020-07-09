@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CovidAPI from "../../../services/covidAPI";
 import s from "./StatBlock.module.css";
@@ -7,8 +7,9 @@ import {
   setSummaryStatActionCreator,
 } from "../../../redux/covid-reducer";
 
-function StatBlock(props) {
+function StatBlock() {
   const { summaryCovidStat } = useSelector((state) => state.covid);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ function StatBlock(props) {
   }, []);
 
   if (summaryCovidStat.length === 0) return <div> loading</div>;
+
   return (
     <div className={s.blockWrapper}>
       <h1 className={s.headline}>

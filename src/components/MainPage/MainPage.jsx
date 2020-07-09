@@ -6,7 +6,7 @@ import MapBlock from "./MapBlock/MapBlock";
 import NavBar from "../NavBar/NavBar";
 import SympthomsBlock from "./SympthomsBlock/SympthomsBlock";
 
-const MainPage = (props) => {
+const MainPage = () => {
   return (
     <div className={s.wrapper}>
       <NavBar />

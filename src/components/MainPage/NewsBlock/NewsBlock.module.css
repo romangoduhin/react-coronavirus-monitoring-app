@@ -13,22 +13,26 @@
   border: 1px grey;
   border-style: solid;
 }
+
 .item:hover {
   transform: scale(0.98);
   transition: all 0.2s;
   border: 1px red;
   border-style: solid;
 }
+
 .listItem {
   color: black;
   font-size: 30px;
 }
+
 .listItem:hover {
   transform: scale(1.1);
   color: crimson;
   transition: all 0.7s;
   cursor: pointer;
 }
+
 .item a {
   font-family: Arial, Helvetica, Verdana, sans-serif;
   text-decoration: none;
@@ -38,10 +42,12 @@
 .publishedAt {
   color: purple;
 }
+
 .urlToImage {
   width: 100%;
   height: 200px;
 }
+
 .pageList {
   background-color: white;
   text-align: center;

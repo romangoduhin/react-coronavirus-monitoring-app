@@ -3,19 +3,23 @@ import s from "./SearchNews.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import newsAPI from "../../../services/newsAPI";
 import { setFullNewsActionCreator } from "../../../redux/news-reducer";
+
 function SearchNews({}) {
-  const [value, setValue] = useState("");
-  const dispatch = useDispatch();
   const { covidFullNews } = useSelector((state) => state.news);
-  console.log(value);
+
+  const dispatch = useDispatch();
+
+  const [value, setValue] = useState("");
+
   const [arr, setArr] = useState([]);
-  console.log(arr);
+
   useEffect(() => {
     let filteredArr = covidFullNews.filter((item) => {
       return item.title.includes(value);
     });
     value === "" ? setArr([]) : setArr(filteredArr);
   }, [value]);
+
   useEffect(() => {
     let p = [];
     const getFullNews = async () => {
@@ -24,6 +28,7 @@ function SearchNews({}) {
     };
     getFullNews();
   }, []);
+
   return (
     <div className={s.blockWrapper}>
       <div className={s.inputBlock}>
@@ -36,10 +41,10 @@ function SearchNews({}) {
         />
       </div>
       <div className={s.searchedList}>
-        {arr.map((article) => {
+        {arr.map((article, i) => {
           return (
             <a href={article.url}>
-              <div key={article.id} className={s.searchedNews}>
+              <div key={i} className={s.searchedNews}>
                 <div>{article.title}</div>
               </div>
             </a>

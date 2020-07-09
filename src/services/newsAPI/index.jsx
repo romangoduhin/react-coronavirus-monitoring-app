@@ -12,15 +12,14 @@ const newsAPI = {
         country ? "&country=" + country : ""
       }&page=${currentPage}&pageSize=${pageSize}`
     );
-    console.log(response);
     return response.data;
   },
+
   getFullNews: async (searchWord = "covid", pageSize) => {
-    const response1 = await instance.get(
+    const response = await instance.get(
       `?q=${searchWord}&apiKey=${key}&pageSize=${pageSize}`
     );
-    console.log(response1);
-    return response1.data;
+    return response.data;
   },
 };
 

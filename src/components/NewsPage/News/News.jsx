@@ -3,17 +3,20 @@ import s from "./News.module.css";
 import newsAPI from "../../../services/newsAPI";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setFullNewsActionCreator,
   setNewsActionCreator,
   setTotalResultsActionCreator,
 } from "../../../redux/news-reducer";
 import newsNotFoundImg from "../../../services/pngfuel.com.png";
+
 function News() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const dispatch = useDispatch();
   const { covidNews, totalCount, pageSize } = useSelector(
     (state) => state.news
   );
+
+  const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
     const getNews = async () => {
       const { articles, totalResults } = await newsAPI.getNews(
@@ -32,15 +35,17 @@ function News() {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+
   if (covidNews.length === 0) return <div> loading</div>;
+
   return (
     <div className={s.blockWrapper}>
       <div className={s.newsList}>
-        {covidNews.map((article) => {
+        {covidNews.map((article, i) => {
           return (
-            <div className={s.itemWrapper}>
+            <div className={s.itemWrapper} key={i}>
               <div className={s.imgWrapper}>
-                <div key={article.id} className={s.item}>
+                <div key={i} className={s.item}>
                   <a href={article.url}>
                     <img
                       className={s.urlToImage}
@@ -71,13 +76,12 @@ function News() {
           );
         })}
       </div>
-
       <div className={s.pageList}>
-        {pages.map((page) => {
+        {pages.map((page, i) => {
           return (
             <span
               className={currentPage === page ? s.selectPage : s.listItem}
-              key={page.id}
+              key={i}
               onClick={() => {
                 setCurrentPage(page);
               }}

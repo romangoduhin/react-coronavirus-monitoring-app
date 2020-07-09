@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./Map.module.css";
+
 function Map() {
   return (
     <div className={s.blockWrapper}>

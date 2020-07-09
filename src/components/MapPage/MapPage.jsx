@@ -1,9 +1,8 @@
 import React from "react";
-import s from "./MapPage.module.css";
 import NavBar from "../NavBar/NavBar";
 import Map from "./Map/Map";
 
-const MapPage = (props) => {
+const MapPage = () => {
   return (
     <div>
       <NavBar />
@@ -11,4 +10,5 @@ const MapPage = (props) => {
     </div>
   );
 };
+
 export default MapPage;

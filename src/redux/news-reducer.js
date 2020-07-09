@@ -16,18 +16,21 @@ const newsReducer = (state = initialState, action) => {
         covidNews: [...action.covidNews],
       };
     }
+
     case SET_TOTAL_RESULTS: {
       return {
         ...state,
         totalCount: action.totalResults,
       };
     }
+
     case SET_FULL_COVID_NEWS: {
       return {
         ...state,
         covidFullNews: [...action.covidFullNews],
       };
     }
+
     default:
       return state;
   }
@@ -53,4 +56,5 @@ export const setFullNewsActionCreator = (covidFullNews) => {
     covidFullNews,
   };
 };
+
 export default newsReducer;

@@ -1,6 +1,7 @@
 .blockWrapper {
   margin-top: 170px;
 }
+
 .input {
   background-color: ghostwhite;
   color: black;
@@ -8,14 +9,17 @@
   height: 50px;
   font-size: 50px;
 }
+
 .inputBlock {
   display: flex;
   justify-content: center;
 }
+
 .searchedList {
   margin: auto;
   width: 80%;
 }
+
 .searchedNews {
   border: 1px black;
   border-style: solid;
@@ -26,9 +30,11 @@
   text-decoration: none;
   color: black;
 }
+
 a {
   text-decoration: none;
 }
+
 .searchedNews:hover {
   background-color: red;
   transform: scale(1.005);

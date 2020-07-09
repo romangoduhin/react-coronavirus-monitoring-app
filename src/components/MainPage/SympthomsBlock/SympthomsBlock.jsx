@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./SympthomsBlock.module.css";
+
 function SympthomsBlock() {
   return (
     <div className={s.sympthomsInfo}>
